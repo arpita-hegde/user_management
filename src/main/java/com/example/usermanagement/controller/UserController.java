@@ -23,47 +23,32 @@ import com.example.usermanagement.serviceimpl.UserServiceImpl;
 @RequestMapping("/api")
 public class UserController {
 
-	    @Autowired
-	    private UserServiceImpl userService;
-	   
-	    @PostMapping("/user")
-	    public @ResponseBody
-	    User addUser(
-	    		@Valid @RequestBody User user
-	    ) {
-	        return userService.addUser(user);
-	    }
+	@Autowired
+	private UserServiceImpl userService;
 
-	    @GetMapping("/users")
-	    public @ResponseBody
-	    List<User> getUsers() {
-	        return userService.getUsers();
-	    }
+	@PostMapping("/user")
+	public @ResponseBody User addUser(@Valid @RequestBody User user) {
+		return userService.addUser(user);
+	}
 
-	    @GetMapping("/users/{id}")
-	    public @ResponseBody
-	    User getUserById(
-	            @PathVariable Long id
-	    ) {
-	        return userService.getUserById(id);
-	    }
+	@GetMapping("/users")
+	public @ResponseBody List<User> getUsers() {
+		return userService.getUsers();
+	}
 
-	    @PutMapping("/users/{id}")
-	    public @ResponseBody
-	    User updateUserById(
-	            @PathVariable Long id,
-	            @RequestBody User user
-	    ) {
-	        return userService.updateUserById(id, user);
-	    }
+	@GetMapping("/users/{id}")
+	public @ResponseBody User getUserById(@PathVariable Long id) {
+		return userService.getUserById(id);
+	}
 
-	    @DeleteMapping("/users/{id}")
-	    public @ResponseBody
-	    ResponseEntity<?> deleteUserById(
-	            @PathVariable Long id
-	    ) {
-	        return userService.deleteUserById(id);
-	    }
+	@PutMapping("/users/{id}")
+	public @ResponseBody User updateUserById(@PathVariable Long id, @RequestBody User user) {
+		return userService.updateUserById(id, user);
+	}
 
+	@DeleteMapping("/users/{id}")
+	public @ResponseBody ResponseEntity<?> deleteUserById(@PathVariable Long id) {
+		return userService.deleteUserById(id);
+	}
 
 }

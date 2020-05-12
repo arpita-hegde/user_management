@@ -3,7 +3,7 @@ services:
   user_management_app:
     image: user_management_app
     ports:
-      - "8089:8088"
+      - "8088:8088"
     networks:
       - user-network
     depends_on:
